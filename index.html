@@ -13,26 +13,41 @@
 
     /* Section background colors */
     #projects.section {
-      background-color: rgba(255, 244, 229, 0.95); /* soft orange */
+      background-color: rgba(255, 244, 229, 0.95);
     }
 
     #education.section {
-      background-color: rgba(229, 241, 255, 0.95); /* soft blue */
+      background-color: rgba(229, 241, 255, 0.95);
     }
 
     #experience.section {
-      background-color: rgba(235, 255, 229, 0.95); /* soft green */
+      background-color: rgba(235, 255, 229, 0.95);
     }
 
     #about.section {
-      background-color: rgba(245, 229, 255, 0.95); /* soft purple-pink */
+      background-color: rgba(245, 229, 255, 0.95);
     }
 
     #contact.section {
-      background-color: rgba(229, 255, 251, 0.95); /* soft teal */
+      background-color: rgba(229, 255, 251, 0.95);
+    }
+
+    .project-title {
+      cursor: pointer;
+      color: #007acc;
+      transition: 0.3s;
+    }
+
+    .project-title:hover {
+      text-decoration: underline;
+    }
+
+    .details {
+      padding-left: 1rem;
+      margin-top: 0.5rem;
+      display: none;
     }
   </style>
-
 </head>
 <body>
 
@@ -50,7 +65,6 @@
   
   <!-- Main Section -->
   <div class="container">
-    <!-- Left Side -->
     <div class="left">
       <h2>Front & Back end Developer</h2>
       <h1>Hello, my name<br>is Mahima Nayi</h1>
@@ -62,8 +76,6 @@
         <a href="https://linkedin.com/in/your-profile" class="linkedin-btn" target="_blank">LinkedIn</a>
       </div>
     </div>
-
-    <!-- Right Side -->
     <div class="right">
       <img src="mahima.jpg" alt="Mahima Nayi" />
     </div>
@@ -87,35 +99,45 @@
       <h2>Projects</h2>
 
       <div class="project">
-        <h3>Field Service Management System</h3>
-        <p><strong>Company:</strong> Serpent & Costco (Internship, India)</p>
-        <p>A web-based platform allowing users to book maintenance services like AC repairs directly from their homes.</p>
-        <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, Python (Flask/Django), MySQL</p>
+        <h3 class="project-title" onclick="toggleDetails(this)">Field Service Management System</h3>
+        <div class="details">
+          <p><strong>Company:</strong> Serpent & Costco (Internship, India)</p>
+          <p>A web-based platform allowing users to book maintenance services like AC repairs directly from their homes.</p>
+          <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, Python (Flask/Django), MySQL</p>
+        </div>
       </div>
 
       <div class="project">
-        <h3>Helping Hand – Student Utility Platform</h3>
-        <p><strong>Final Year MIT Project</strong></p>
-        <p>A student-focused portal offering help with housing, groceries, internships, networking, and legal support.</p>
-        <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, React.js, Firebase, Node.js</p>
+        <h3 class="project-title" onclick="toggleDetails(this)">Helping Hand – Student Utility Platform</h3>
+        <div class="details">
+          <p><strong>Final Year MIT Project</strong></p>
+          <p>A student-focused portal offering help with housing, groceries, internships, networking, and legal support.</p>
+          <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, React.js, Firebase, Node.js</p>
+        </div>
       </div>
 
       <div class="project">
-        <h3>Restaurant POS System</h3>
-        <p>Developed for an Indian cuisine restaurant to manage orders and billing efficiently.</p>
-        <p><strong>Tech Stack:</strong> JavaScript, PHP, MySQL, Bootstrap</p>
+        <h3 class="project-title" onclick="toggleDetails(this)">Restaurant POS System</h3>
+        <div class="details">
+          <p>Developed for an Indian cuisine restaurant to manage orders and billing efficiently.</p>
+          <p><strong>Tech Stack:</strong> JavaScript, PHP, MySQL, Bootstrap</p>
+        </div>
       </div>
 
       <div class="project">
-        <h3>Cafe POS System</h3>
-        <p>Custom POS for a café supporting order-taking and daily sales tracking.</p>
-        <p><strong>Tech Stack:</strong> JavaScript, PHP, SQLite, Bootstrap</p>
+        <h3 class="project-title" onclick="toggleDetails(this)">Cafe POS System</h3>
+        <div class="details">
+          <p>Custom POS for a café supporting order-taking and daily sales tracking.</p>
+          <p><strong>Tech Stack:</strong> JavaScript, PHP, SQLite, Bootstrap</p>
+        </div>
       </div>
 
       <div class="project">
-        <h3>Shoe E-Commerce Website</h3>
-        <p>Created a full-featured website for an Indian footwear business with online ordering functionality.</p>
-        <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, React.js, Firebase, Stripe API</p>
+        <h3 class="project-title" onclick="toggleDetails(this)">Shoe E-Commerce Website</h3>
+        <div class="details">
+          <p>Created a full-featured website for an Indian footwear business with online ordering functionality.</p>
+          <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, React.js, Firebase, Stripe API</p>
+        </div>
       </div>
     </div>
   </section>
@@ -166,6 +188,19 @@
       <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mahima-nayi-bb4a32278/" target="_blank">linkedin.com/in/mahima-nayi-bb4a32278</a></p>
     </div>
   </section>
+
+  <script>
+    function toggleDetails(header) {
+      const details = header.nextElementSibling;
+      const isOpen = details.style.display === "block";
+
+      // Optional: close all others
+      document.querySelectorAll('.details').forEach(d => d.style.display = "none");
+
+      // Toggle the clicked one
+      details.style.display = isOpen ? "none" : "block";
+    }
+  </script>
 
 </body>
 </html>
